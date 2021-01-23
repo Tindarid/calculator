@@ -56,11 +56,11 @@ public class OperationToken implements Token {
             case ADD:
                 return a + b;
             case SUB:
-                return a - b;
+                return b - a;
             case MUL:
                 return a * b;
             case DIV:
-                return a / b;
+                return b / a;
             default:
                 throw new IllegalStateException("Unexpected value: " + operation);
         }

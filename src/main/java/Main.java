@@ -1,6 +1,7 @@
 import token.Token;
 import token.Tokenizer;
 import visitor.ParserVisitor;
+import visitor.CalcVisitor;
 import visitor.PrintVisitor;
 
 import java.util.List;
@@ -31,5 +32,11 @@ public class Main {
             t.accept(printer_pol);
         }
         System.out.println("POSTFIX: " + printer_pol.result());
+
+        CalcVisitor calculator = new CalcVisitor();
+        for (Token t : tokens) {
+            t.accept(calculator);
+        }
+        System.out.println("POSTFIX: " + calculator.result());
     }
 }

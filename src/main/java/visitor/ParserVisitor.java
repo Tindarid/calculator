@@ -24,6 +24,9 @@ public class ParserVisitor implements TokenVisitor {
             if (op instanceof BracketToken) {
                 throw new IllegalArgumentException("Not right bracket is found for left bracket");
             }
+            if (op instanceof OperationToken) {
+                throw new IllegalArgumentException("Not enough operands for binary operation");
+            }
             tokens.add(op);
         }
         return tokens;
