@@ -2,7 +2,7 @@ package token;
 
 import visitor.TokenVisitor;
 
-public class BracketToken {
+public class BracketToken implements Token {
     enum Bracket {
         LBR,
         RBR
@@ -27,7 +27,7 @@ public class BracketToken {
         visitor.visit(this);
     }
 
-    public String getSupportedBrackets() {
+    public static String getSupportedBrackets() {
         return "()";
     }
 

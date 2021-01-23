@@ -2,7 +2,7 @@ package token;
 
 import visitor.TokenVisitor;
 
-public class OperationToken {
+public class OperationToken implements Token {
     private enum Operation {
         ADD,
         SUB,
