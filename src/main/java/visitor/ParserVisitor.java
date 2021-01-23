@@ -13,7 +13,7 @@ public class ParserVisitor implements TokenVisitor {
     private final List<Token> tokens;
     private final Stack<Token> ops;
 
-    ParserVisitor() {
+    public ParserVisitor() {
         tokens = new ArrayList<>();
         ops = new Stack<>();
     }

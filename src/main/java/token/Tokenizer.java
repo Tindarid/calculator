@@ -7,7 +7,7 @@ public class Tokenizer {
     private final List<Token> tokens;
     private State curState;
 
-    Tokenizer() {
+    public Tokenizer() {
         tokens = new ArrayList<>();
         curState = new WhitespaceState();
     }
