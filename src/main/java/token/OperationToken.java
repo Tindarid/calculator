@@ -4,13 +4,28 @@ import visitor.TokenVisitor;
 
 public class OperationToken implements Token {
     private enum Operation {
-        ADD,
-        SUB,
-        MUL,
-        DIV
+        ADD(1),
+        SUB(1),
+        MUL(2),
+        DIV(2)
+        ;
+
+        private final int priority;
+
+        Operation(int priority) {
+            this.priority = priority;
+        }
+
+        public int getPriority() {
+            return priority;
+        }
     }
 
     private final Operation operation;
+
+    public boolean hasNotLessPriorityThan(OperationToken rhs) {
+        return this.operation.getPriority() >= rhs.operation.getPriority();
+    }
 
     OperationToken(char operation) {
         switch (operation) {
