@@ -65,6 +65,21 @@ public class OperationToken implements Token {
         }
     }
 
+    public char get() {
+        switch (operation) {
+            case ADD:
+                return '+';
+            case SUB:
+                return '-';
+            case MUL:
+                return '*';
+            case DIV:
+                return '/';
+            default:
+                throw new IllegalStateException("Unexpected value: " + operation);
+        }
+    }
+
     public static String getSupportedOperations() {
         return "+-*/";
     }

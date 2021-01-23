@@ -34,4 +34,15 @@ public class BracketToken implements Token {
     public boolean isOpen() {
         return this.bracket == Bracket.LBR;
     }
+
+    public char get() {
+        switch (bracket) {
+            case LBR:
+                return '(';
+            case RBR:
+                return ')';
+            default:
+                throw new IllegalStateException("Unexpected value: " + bracket);
+        }
+    }
 }

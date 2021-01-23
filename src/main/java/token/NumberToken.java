@@ -9,7 +9,7 @@ public class NumberToken implements Token {
         this.number = number;
     }
 
-    public int getNumber() {
+    public int get() {
         return number;
     }
 
