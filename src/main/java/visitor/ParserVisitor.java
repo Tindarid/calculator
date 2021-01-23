@@ -22,7 +22,7 @@ public class ParserVisitor implements TokenVisitor {
         while (!ops.empty()) {
             Token op = ops.pop();
             if (op instanceof BracketToken) {
-                throw new IllegalArgumentException("Found extra brackets");
+                throw new IllegalArgumentException("Not right bracket is found for left bracket");
             }
             tokens.add(op);
         }
@@ -34,14 +34,12 @@ public class ParserVisitor implements TokenVisitor {
     }
 
     public void visit(OperationToken token) {
-        while (true) {
+        while (!ops.empty()) {
             Token op = ops.peek();
-            if (!(op instanceof OperationToken)) {
+            if (!(op instanceof OperationToken) || !((OperationToken) op).hasNotLessPriorityThan(token)) {
                 break;
             }
-            if (((OperationToken) op).hasNotLessPriorityThan(token)) {
-                tokens.add(ops.pop());
-            }
+            tokens.add(ops.pop());
         }
         ops.push(token);
     }

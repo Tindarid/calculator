@@ -33,6 +33,7 @@ public class OperationToken implements Token {
                 this.operation = Operation.ADD;
                 break;
             case '-':
+            case '–': // if you will copy from docx
                 this.operation = Operation.SUB;
                 break;
             case '*':
@@ -81,6 +82,6 @@ public class OperationToken implements Token {
     }
 
     public static String getSupportedOperations() {
-        return "+-*/";
+        return "+-*/–";
     }
 }
